@@ -1,0 +1,8 @@
+venv
+__pycache__
+corpus.txt
+gpt_checkpoint_tokenizer.pt
+gpt_checkpoint.pt
+train_bert.py
+main.py
+bert.py
