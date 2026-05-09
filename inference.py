@@ -8,8 +8,8 @@ def load_and_generate(
     queries: list[str],
     checkpoint_path: str = "gpt_checkpoint.pt",
     config: GPTConfig = None,
-    temperature: float = 0.8,
-    top_k: int = 40
+    temperature: float = 1,
+    top_k: int = 0
 ):
     if not os.path.exists(checkpoint_path):
         raise FileNotFoundError(f"No checkpoint found at {checkpoint_path}")
@@ -20,7 +20,7 @@ def load_and_generate(
     if config is None:
         config = GPTConfig(
             N=6,
-            d_model=512,
+            d_model=256,
             token_dim=200,
             vocab_size=4000,
             num_heads=8,
@@ -50,12 +50,12 @@ def load_and_generate(
 
 if __name__ == "__main__":
     queries = [
-        "Tell me a story : "
+        "Once upon a time"
     ]
 
     load_and_generate(
         queries=queries,
         checkpoint_path="gpt_checkpoint.pt",
-        temperature=0.8,
-        top_k=40
+        temperature=0.1,
+        top_k=0
     )
